@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Shnail Trail: AI integration, social media and marketing for South African small businesses. It drafts, you decide.">
+<title>Shnail Trail | AI, socials and growth for SA small businesses (DRAFT)</title>
+<style>
+:root{
+  --bg:#0b0d10;--bg2:#12161b;--card:#161b22;--line:#252c36;
+  --text:#e8ecf1;--muted:#9aa5b1;--accent:#c6f432;--accent2:#38d9a9;--warn:#ffb020;
+  --radius:16px;--max:1100px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover,a:focus-visible{text-decoration:underline}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 20px}
+.skip{position:absolute;left:-999px;top:0;background:var(--accent);color:#000;padding:8px 14px;border-radius:8px;z-index:100}
+.skip:focus{left:12px;top:12px}
+.draft-bar{background:var(--warn);color:#1a1200;font-size:13px;font-weight:600;text-align:center;padding:6px 12px}
+header.site{position:sticky;top:0;z-index:50;background:rgba(11,13,16,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--text);font-weight:800;letter-spacing:-.02em;font-size:18px}
+.brand svg{width:30px;height:30px}
+.nav ul{display:none;list-style:none;gap:22px}
+.nav ul a{color:var(--muted);font-size:15px}
+.nav ul a:hover{color:var(--text)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;border-radius:999px;padding:12px 22px;font-size:15px;border:1px solid transparent;transition:transform .15s ease,background .15s ease}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.btn-primary{background:var(--accent);color:#0b0d10}
+.btn-ghost{border-color:var(--line);color:var(--text);background:transparent}
+.btn-sm{padding:8px 16px;font-size:14px}
+section{padding:72px 0;border-bottom:1px solid var(--line)}
+.eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);margin-bottom:12px}
+h1,h2,h3{line-height:1.15;letter-spacing:-.025em}
+h1{font-size:clamp(2.1rem,7vw,3.8rem);font-weight:850}
+h2{font-size:clamp(1.6rem,4.5vw,2.5rem);font-weight:800;margin-bottom:14px}
+h3{font-size:1.15rem;font-weight:750;margin-bottom:6px}
+.lead{font-size:clamp(1.02rem,2.4vw,1.2rem);color:var(--muted);max-width:680px}
+.hl{color:var(--accent)}
+.hero{padding:72px 0 64px;background:radial-gradient(900px 420px at 85% -10%,rgba(198,244,50,.13),transparent 60%),radial-gradient(700px 380px at -10% 110%,rgba(56,217,169,.10),transparent 60%)}
+.hero .lead{margin:18px 0 28px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;list-style:none}
+.pills li{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:var(--bg2)}
+.grid{display:grid;gap:16px;grid-template-columns:1fr}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.card p{color:var(--muted);font-size:15px}
+.icon{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(198,244,50,.1);color:var(--accent);font-weight:800;margin-bottom:14px}
+.security{background:var(--bg2)}
+.locks{list-style:none;display:grid;gap:12px;grid-template-columns:1fr;margin-top:26px}
+.locks li{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.locks .tick{flex:0 0 26px;height:26px;border-radius:50%;background:var(--accent2);color:#06231a;display:grid;place-items:center;font-weight:900;font-size:14px}
+.locks strong{display:block}
+.locks span.d{color:var(--muted);font-size:14px}
+.flow{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;list-style:none;counter-reset:f}
+.flow li{counter-increment:f;font-size:14px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.flow li::before{content:counter(f) ". ";color:var(--accent);font-weight:800}
+.steps{counter-reset:s}
+.step{position:relative}
+.step .num{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.1em;text-transform:uppercase}
+.price{font-size:1.5rem;font-weight:850;margin:10px 0 4px;color:var(--text)}
+.price small{font-size:.85rem;font-weight:600;color:var(--muted)}
+.vat{display:inline-block;font-size:12px;font-weight:700;color:var(--warn);border:1px solid rgba(255,176,32,.4);border-radius:6px;padding:2px 8px;margin-top:6px}
+.card ul{margin:12px 0 0 18px;color:var(--muted);font-size:14px}
+.card ul li{margin:4px 0}
+.table-wrap{overflow-x:auto;margin-top:22px;border:1px solid var(--line);border-radius:var(--radius)}
+table{width:100%;border-collapse:collapse;min-width:620px;font-size:14px}
+caption{text-align:left;padding:14px 16px;color:var(--muted);font-size:13px}
+th,td{padding:12px 16px;border-top:1px solid var(--line);text-align:left;vertical-align:top}
+thead th{background:var(--bg2);font-weight:750}
+tbody th{font-weight:650;color:var(--muted)}
+.featured{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.badge{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:#0b0d10;border-radius:6px;padding:2px 8px;margin-left:6px;vertical-align:middle}
+.note{margin-top:18px;font-size:14px;color:var(--muted);background:var(--bg2);border-left:3px solid var(--warn);padding:12px 16px;border-radius:8px}
+.proof .card h3{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ph{display:inline-block;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;color:var(--warn);background:rgba(255,176,32,.08);border:1px dashed rgba(255,176,32,.5);border-radius:6px;padding:2px 8px}
+.media-ph{margin-top:14px;aspect-ratio:9/16;max-height:260px;width:auto;border:1px dashed var(--line);border-radius:12px;display:grid;place-items:center;color:var(--muted);font-size:13px;text-align:center;padding:12px;background:repeating-linear-gradient(45deg,var(--bg2),var(--bg2) 10px,var(--card) 10px,var(--card) 20px)}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+details+details{margin-top:10px}
+summary{cursor:pointer;font-weight:700;list-style-position:outside}
+details p{color:var(--muted);margin-top:8px;font-size:15px}
+.contact{background:radial-gradient(800px 360px at 50% 0%,rgba(198,244,50,.12),transparent 65%)}
+.contact-box{text-align:center;max-width:720px;margin:0 auto}
+.contact-box .lead{margin:12px auto 26px}
+.contact-lines{list-style:none;display:grid;gap:10px;margin:22px auto 0;max-width:460px}
+.contact-lines li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:15px}
+footer{padding:32px 0 48px;color:var(--muted);font-size:13px}
+footer p+p{margin-top:6px}
+@media (min-width:720px){
+  .nav ul{display:flex}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .locks{grid-template-columns:repeat(2,1fr)}
+  section{padding:96px 0}
+  .hero{padding:110px 0 96px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="draft-bar" role="note">STAGING PREVIEW — not the official shnailtrail.co.za site yet. Contact and privacy placeholders remain. Prices show the labelled founding-client 30% discount. All prices are draft targets.</div>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Shnail Trail home">
+      <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="18" cy="15" r="9" fill="none" stroke="#c6f432" stroke-width="2.5"/><path d="M18 15a4 4 0 1 0-4-4" fill="none" stroke="#c6f432" stroke-width="2.5" stroke-linecap="round"/><path d="M3 25h24" stroke="#38d9a9" stroke-width="2.5" stroke-linecap="round"/><circle cx="6" cy="21" r="2" fill="#38d9a9"/></svg>
+      Shnail Trail
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#security">How it stays safe</a></li>
+        <li><a href="#offer">Pricing</a></li>
+        <li><a href="#proof">Proof</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="#contact">Book a Trail Map</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="top" aria-labelledby="hero-h">
+  <div class="wrap">
+    <span class="eyebrow">AI integration · Social media · Marketing</span>
+    <h1 id="hero-h">Your marketing, handled by AI.<br><span class="hl">Every post approved by you.</span></h1>
+    <p class="lead">Shnail Trail sets up AI agents for South African small businesses: social media that plans and drafts itself, WhatsApp enquiry helpers, and the admin behind the scenes, all on one dashboard. Nothing goes live until you say yes.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#contact">Book a Trail Map session</a>
+      <a class="btn btn-ghost" href="#security">See how it stays safe</a>
+    </div>
+    <ul class="pills" aria-label="Key facts">
+      <li>Built for SA owner-run businesses</li>
+      <li>Gauteng-based, online anywhere</li>
+      <li>POPIA-minded</li>
+      <li>Organic growth only, no paid ads</li>
+      <li>No VAT charged (not VAT-registered)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- PROBLEM / WHAT YOU GET -->
+<section aria-labelledby="get-h">
+  <div class="wrap">
+    <span class="eyebrow">One system, not three suppliers</span>
+    <h2 id="get-h">One team for your AI, your socials and your growth.</h2>
+    <p class="lead">Most businesses hire three different people for this. We run it as one system, with one person accountable.</p>
+    <div class="grid grid-3" style="margin-top:28px">
+      <article class="card">
+        <div class="icon" aria-hidden="true">AI</div>
+        <h3>AI agents that do the admin</h3>
+        <p>WhatsApp enquiries, bookings and reminders, quotes, internal checklists and weekly summaries, drafted and queued for your OK.</p>
+      </article>
+      <article class="card">
+        <div class="icon" aria-hidden="true">▶</div>
+        <h3>Social media, you hold the brakes</h3>
+        <p>Planned posts, captions and AI-edited reels from your own footage. Comment and DM replies are drafted for your approval.</p>
+      </article>
+      <article class="card">
+        <div class="icon" aria-hidden="true">↗</div>
+        <h3>A growth plan you can follow</h3>
+        <p>Content pillars, a plain-English monthly report and a quarterly growth plan. Organic only: we don't run paid ads.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section class="security" id="security" aria-labelledby="sec-h">
+  <div class="wrap">
+    <span class="eyebrow">AgentOS · the engine room</span>
+    <h2 id="sec-h">It drafts. <span class="hl">You decide.</span></h2>
+    <p class="lead">AI should ask permission. Every message, post and booking sits in a simple approval queue. Tap Approve or Change. No yes means no post, no reply and no purchase.</p>
+    <ol class="flow" aria-label="How it works">
+      <li>Intake (Trail Map)</li>
+      <li>Content &amp; automation drafts</li>
+      <li>Your approval queue</li>
+      <li>Posting after a staging check</li>
+      <li>Monthly report</li>
+    </ol>
+    <ul class="locks">
+      <li><span class="tick" aria-hidden="true">✓</span><div><strong>Nothing goes out without your yes</strong><span class="d">Drafts wait in your queue. It can't post, reply or spend on its own.</span></div></li>
+      <li><span class="tick" aria-hidden="true">✓</span><div><strong>Staging before live</strong><span class="d">We build and test in a safe copy of your setup before anything touches your real accounts.</span></div></li>
+      <li><span class="tick" aria-hidden="true">✓</span><div><strong>Passwords in a vault, not a chat</strong><span class="d">Least-privilege access only. Your AI and software accounts stay in your name, with spending caps.</span></div></li>
+      <li><span class="tick" aria-hidden="true">✓</span><div><strong>Messages are data, not commands</strong><span class="d">If a comment, DM or web page tries to "talk" the AI into something, it's treated as information, never as instructions.</span></div></li>
+      <li><span class="tick" aria-hidden="true">✓</span><div><strong>Phones can't approve new tools</strong><span class="d">New tools and permissions are only changed through the dashboard.</span></div></li>
+      <li><span class="tick" aria-hidden="true">✓</span><div><strong>Every step on record</strong><span class="d">An audit trail of who, what, when and approved by whom, which you can ask for any time.</span></div></li>
+    </ul>
+    <p class="note">Nothing is 100% guaranteed online. That's exactly why your approval and the audit trail are always the last line.</p>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section id="offer" aria-labelledby="offer-h">
+  <div class="wrap">
+    <span class="eyebrow">Straightforward pricing, in rand</span>
+    <h2 id="offer-h">Trail Map → Build → Care</h2>
+    <p class="lead">Paid discovery first, then a fixed quote. A once-off build, a monthly care plan after that, and AI and software usage billed at cost.</p>
+    <p class="note"><strong>Draft target pricing</strong> using the Google Doc bands (agreed 25 Nov 2026). <strong>No VAT charged (not VAT-registered).</strong> The exact figure in each range is set in a written quote after discovery. Full Throttle is held until two or three real case studies exist.</p>
+
+    <div class="grid grid-3 steps" style="margin-top:24px">
+      <article class="card step">
+        <span class="num">Step 1</span>
+        <h3>Trail Map discovery</h3>
+        <p>A 2 to 3 hour working session (on site in Gauteng or online). We review your socials, tools and admin.</p>
+        <p class="price">R4,500 – R9,500 <small>once-off</small></p>
+        <span class="vat">No VAT charged (not VAT-registered)</span>
+        <ul>
+          <li>Written plan and a fixed quote</li>
+          <li>Your "top 3 time-wasters"</li>
+          <li>Fully credited to your build if you go ahead within 30 days</li>
+        </ul>
+      </article>
+      <article class="card step">
+        <span class="num">Step 2</span>
+        <h3>Scoped AgentOS build + training</h3>
+        <p>Your own isolated workspace, content pipeline and approval queue, plus agents for the jobs that eat your time.</p>
+        <p class="price">From R7,500 <small>once-off setup</small></p>
+        <span class="vat">No VAT charged (not VAT-registered)</span>
+        <ul>
+          <li>Built and tested in staging first</li>
+          <li>Live only after your written yes</li>
+          <li>Owner training and a handover pack</li>
+        </ul>
+      </article>
+      <article class="card step">
+        <span class="num">Step 3</span>
+        <h3>Monthly Care</h3>
+        <p>Content and posting after your OK, monitoring, fixes, small tweaks and a plain-English monthly report.</p>
+        <p class="price">From R4,500 <small>/ month</small></p>
+        <span class="vat">No VAT charged (not VAT-registered)</span>
+        <ul>
+          <li>Organic growth only</li>
+          <li>Usage passed through at cost, no markup</li>
+          <li>Every cost line in your report</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <caption>The three tiers (list prices, Google Doc bands, ZAR). No VAT charged (not VAT-registered). Full Throttle is held.</caption>
+        <thead>
+          <tr><th scope="col"></th><th scope="col">Trailhead</th><th scope="col">Trail Rider <span class="badge">Lead offer</span></th><th scope="col">Full Throttle</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Best for</th><td>Showing up consistently</td><td>Video plus a few time-saving automations</td><td>Near-daily content and several agents</td></tr>
+          <tr><th scope="row">Platforms</th><td>1 to 2</td><td>2 to 3</td><td>3 to 4</td></tr>
+          <tr><th scope="row">Content per month</th><td>About 12 posts</td><td>About 16 to 20 posts, incl. 4 AI-edited reels</td><td>Near-daily, incl. 8 AI-edited reels</td></tr>
+          <tr><th scope="row">You approve every post</th><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><th scope="row">AgentOS automations</th><td>1 simple workflow</td><td>2 to 3 workflows</td><td>Multi-agent, marketing + admin</td></tr>
+          <tr><th scope="row">Setup (once-off, list)</th><td>R7,500 – R12,000</td><td>R15,000 – R25,000</td><td>Held until 2–3 case studies</td></tr>
+          <tr><th scope="row">Monthly care (list)</th><td>R4,500 – R6,500</td><td>R9,500 – R14,500</td><td>Held until 2–3 case studies</td></tr>
+          <tr><th scope="row">Founding-client pilot: 30% off</th><td>Setup R5,250 – R8,400 · Care R3,150 – R4,550/mo</td><td>Setup R10,500 – R17,500 · Care R6,650 – R10,150/mo</td><td>Not offered while Full Throttle is held</td></tr>
+          <tr><th scope="row">Usage (AI, software, messaging)</th><td>At cost, extra</td><td>At cost, extra</td><td>At cost, extra</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Not just social: any tier can swap social work for AgentOS automations (WhatsApp enquiries, bookings, quotes, reminders, weekly summaries). Usage costs sit on accounts in your name with a hard monthly spending cap. Not included: paid ads, and shoot days unless quoted. <strong>Founding-client pilot: 30% off</strong> setup and Monthly Care, clearly labelled, for founding clients who give written consent to publish real results (we never write the testimonial). Trail Map stays at the list band and is credited against the discounted setup if you go ahead within 30 days. All prices are draft targets. No VAT charged (not VAT-registered).</p>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof" id="proof" aria-labelledby="proof-h">
+  <div class="wrap">
+    <span class="eyebrow">Real case studies only</span>
+    <h2 id="proof-h">I test it on myself first. Then on clients who trust me.</h2>
+    <p class="lead">Two real case studies: my own stunt page, and our first client, The Joint. No made-up testimonials or numbers, ever.</p>
+    <div class="grid grid-2" style="margin-top:28px">
+      <article class="card">
+        <h3>Dale The Shnail <span class="ph">@dale_the_shnail</span></h3>
+        <p>My own supermoto stunt account. I write the content and edit it with AI through the same AgentOS pipeline clients get: hook and caption writing, AI-made edits, the approval queue, posting and a monthly report.</p>
+        <p style="margin-top:10px"><strong>"Every stunt clip goes through the same approval queue your posts will."</strong></p>
+        <p style="margin-top:10px">Follower count withheld until a fresh dated screenshot is on file.</p>
+        <div class="media-ph">[Raw clip vs AI-edited reel: Dale to supply]</div>
+      </article>
+      <article class="card">
+        <h3>The Joint <span class="ph">[THE JOINT LOGO, approved]</span></h3>
+        <p>Our first named client, featured with their permission. A members-only 18+ club running organic social through AgentOS under strict house rules: no product or price talk, no member faces without written consent, POPIA-safe handling and no paid ads.</p>
+        <p style="margin-top:10px"><strong>If it's safe enough for a brand with this many rules, it's safe enough for yours.</strong></p>
+        <p style="margin-top:10px">Results: <span class="ph">[ADD ONLY AFTER A REAL 30/60/90-DAY AUDIT]</span></p>
+        <div class="media-ph">[Approved venue or brand image only, no people: approved file still needed]</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" aria-labelledby="faq-h">
+  <div class="wrap">
+    <span class="eyebrow">Straight answers</span>
+    <h2 id="faq-h">FAQ</h2>
+    <div style="margin-top:22px">
+      <details><summary>Will AI post things without me knowing?</summary><p>No. Every post sits in your approval queue until you say yes, and nothing goes live without it.</p></details>
+      <details><summary>Can someone hack it by messaging my page?</summary><p>Messages and comments are treated as information, never as commands. Nothing is 100% guaranteed, which is why your approval and the audit trail are always there as the last line.</p></details>
+      <details><summary>Why do I pay for discovery?</summary><p>It's a real piece of work. You get a written plan and a fixed quote, and the fee is credited to your setup if you go ahead within 30 days.</p></details>
+      <details><summary>What does "usage at cost" mean?</summary><p>AI tools and software charge per use. Ideally those accounts are in your name with a spending cap; if we ever pay one for you, it's passed on at exactly what it cost, with no markup, line by line in your report.</p></details>
+      <details><summary>Is this only for social media?</summary><p>No. AgentOS also runs WhatsApp enquiry helpers, booking and quote follow-ups, internal checklists and weekly reports, all on one dashboard with the same approval locks.</p></details>
+      <details><summary>Do you run paid ads?</summary><p>No. We focus on organic growth: good content, consistently.</p></details>
+      <details><summary>Do I own my content?</summary><p>Yes. Your posts, footage and accounts are yours.</p></details>
+      <details><summary>Do you charge VAT?</summary><p>No VAT charged (not VAT-registered). No VAT is added to our prices.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact" aria-labelledby="contact-h">
+  <div class="wrap contact-box">
+    <span class="eyebrow">Start here</span>
+    <h2 id="contact-h">Let's map your trail.</h2>
+    <p class="lead">Tell me a bit about your business and what's eating your time. I'll reply within one working day (SAST).</p>
+    <a class="btn btn-primary" href="#contact">Book a Trail Map session</a>
+    <ul class="contact-lines">
+      <li>Email / WhatsApp: <span class="ph">[INSERT SHNAIL TRAIL EMAIL/WHATSAPP]</span></li>
+      <li>Booking calendar: <span class="ph">[INSERT BOOKING LINK]</span></li>
+      <li>Service area: Gauteng on site · online anywhere in SA</li>
+    </ul>
+    <p class="note" style="text-align:left;margin-top:22px">Trail Map: R4,500 – R9,500 once-off (draft target), credited to your setup within 30 days. No VAT charged (not VAT-registered). By contacting us you agree to our <span class="ph">[POPIA PRIVACY NOTICE LINK]</span>.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Shnail Trail <span class="ph">[(Pty) Ltd + CIPC REG NO. once issued]</span>. No VAT charged (not VAT-registered).</p>
+    <p>Shnail Trail is an independent business. Staging preview, not the official domain. Privacy (POPIA) · Terms: <span class="ph">[TO BE WRITTEN AND REVIEWED]</span></p>
+  </div>
+</footer>
+</body>
+</html>

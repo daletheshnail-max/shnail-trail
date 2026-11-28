@@ -1,0 +1,7 @@
+# Client media stays off the public repo until Dale + client OK
+media/joint/*.jpg
+media/joint/*.jpeg
+media/joint/*.png
+media/joint/*.webp
+media/joint/*.mp4
+media/joint/*.webm

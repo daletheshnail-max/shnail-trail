@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; media-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Shnail Trail: AI integration, social media and marketing for South African small businesses. It drafts, you decide.">
@@ -36,7 +36,7 @@ header.site{position:sticky;top:0;z-index:50;background:rgba(11,13,16,.88);backd
 .btn-primary{background:var(--accent);color:#0b0d10}
 .btn-ghost{border-color:var(--line);color:var(--text);background:transparent}
 .btn-sm{padding:8px 16px;font-size:14px}
-section{padding:72px 0;border-bottom:1px solid var(--line)}
+section{padding:72px 0;border-bottom:1px solid var(--line);scroll-margin-top:72px}
 .eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);margin-bottom:12px}
 h1,h2,h3{line-height:1.15;letter-spacing:-.025em}
 h1{font-size:clamp(2.1rem,7vw,3.8rem);font-weight:850}
@@ -93,10 +93,21 @@ details p{color:var(--muted);margin-top:8px;font-size:15px}
 .contact-lines li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:15px}
 footer{padding:32px 0 48px;color:var(--muted);font-size:13px}
 footer p+p{margin-top:6px}
+.shot{margin-bottom:14px;border-radius:12px;overflow:hidden;background:#000;border:1px solid var(--line)}
+.shot img,.shot video{display:block;width:100%;height:100%;object-fit:cover;background:#000}
+.shot-wide{aspect-ratio:auto}.shot-wide img{object-fit:contain;height:auto;width:100%}
+.shot-portrait{aspect-ratio:9/16;max-width:260px;max-height:340px;margin:0 auto 14px}
+.pending-tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,176,32,.15);color:var(--warn);border:1px solid rgba(255,176,32,.45);border-radius:6px;padding:2px 8px;margin-left:6px;vertical-align:middle}
+.sample-row{display:grid;gap:12px;grid-template-columns:repeat(2,1fr);margin-top:22px}
+.sample-row figure{margin:0}
+.sample-row img{width:100%;border-radius:12px;border:1px solid var(--line);display:block;background:#111}
+.sample-row figcaption{font-size:13px;color:var(--muted);margin-top:8px}
 @media (min-width:720px){
   .nav ul{display:flex}
   .grid-2{grid-template-columns:repeat(2,1fr)}
   .grid-3{grid-template-columns:repeat(3,1fr)}
+  .showcase-grid{grid-template-columns:repeat(2,1fr)}
+  .sample-row{grid-template-columns:repeat(4,1fr)}
   .locks{grid-template-columns:repeat(2,1fr)}
   section{padding:96px 0}
   .hero{padding:110px 0 96px}
@@ -117,6 +128,7 @@ footer p+p{margin-top:6px}
     <nav aria-label="Main">
       <ul>
         <li><a href="#security">How it stays safe</a></li>
+        <li><a href="#work">See what we do</a></li>
         <li><a href="#offer">Pricing</a></li>
         <li><a href="#proof">Proof</a></li>
         <li><a href="#faq">FAQ</a></li>
@@ -269,6 +281,76 @@ footer p+p{margin-top:6px}
   </div>
 </section>
 
+
+<!-- SEE WHAT WE DO -->
+<section id="work" aria-labelledby="work-h">
+  <div class="wrap">
+    <span class="eyebrow">See what we do</span>
+    <h2 id="work-h">Simple samples from the real pipeline.</h2>
+    <p class="lead">A reel, a post, the approval queue and the dashboard — the same path your work would take.</p>
+    <div class="grid showcase-grid" style="margin-top:28px">
+      <article class="card">
+        <div class="shot shot-portrait">
+          <video src="media/dale-reel-wheelie.mp4" poster="media/dale-reel-poster.jpg" controls preload="none" playsinline width="720" height="1280">Your browser can't play this reel. The still is the first frame.</video>
+        </div>
+        <h3>Reels</h3>
+        <p>We turn your raw clips into short reels, ready to post.</p>
+      </article>
+      <article class="card">
+        <div class="shot shot-portrait">
+          <img src="media/dale-ad-post.jpg" alt="Dale the Shnail captioned pit-bike post: When people ask me why I'm not scared to fall off my bike" width="720" height="1280">
+        </div>
+        <h3>Ad posts</h3>
+        <p>Feed and story posts, written and designed to sound like you.</p>
+      </article>
+      <article class="card">
+        <div class="shot shot-wide">
+          <img src="media/approvals-daily.jpg" alt="Approval portal daily check: posts stay in the queue until you mark them done" width="1080" height="500">
+        </div>
+        <h3>Approval portal</h3>
+        <p>Every draft waits in your queue. Nothing goes live until you say yes.</p>
+      </article>
+      <article class="card">
+        <div class="shot shot-wide">
+          <img src="media/agentos-dashboard.jpg" alt="AgentOS dashboard with Jarvis live, tools and status in one place" width="1200" height="462">
+        </div>
+        <h3>AgentOS dashboard</h3>
+        <p>One place to see drafts, approvals and the work in motion.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT SAMPLE, PENDING CLIENT OK
+     TOGGLE (one line): delete the hidden attribute on the <section> below
+     after Dale confirms and the client agrees, and add the approved files
+     listed in media/joint/README.txt. Do not commit client media before that. -->
+<section class="client-sample" id="client-sample" hidden aria-labelledby="client-sample-h">
+  <div class="wrap">
+    <span class="eyebrow">Client sample</span>
+    <h2 id="client-sample-h">Client sample, pending client OK <span class="pending-tag">Hidden by default</span></h2>
+    <p class="lead">Pipeline samples for The Joint. This block stays hidden until Dale confirms and the client agrees. No prices, no product-sales claims, no personal names or street addresses.</p>
+    <div class="sample-row">
+      <figure>
+        <img src="media/joint/members-only.jpg" alt="The Joint typography post: Members only, 18+, no walk-ins" width="720" height="900" loading="lazy">
+        <figcaption>Members-only typography post</figcaption>
+      </figure>
+      <figure>
+        <img src="media/joint/not-a-shop.jpg" alt="The Joint typography post: This page is not a shop" width="720" height="900" loading="lazy">
+        <figcaption>Community notes, not a shop</figcaption>
+      </figure>
+      <figure>
+        <img src="media/joint/evenings-at-the-club.jpg" alt="The Joint typography post: Evenings at the club" width="720" height="900" loading="lazy">
+        <figcaption>Evenings at the club</figcaption>
+      </figure>
+      <figure>
+        <img src="media/joint/game-night.jpg" alt="The Joint Game Night social post, members only, street address removed" width="720" height="900" loading="lazy">
+        <figcaption>Game Night post (address removed)</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <!-- PROOF -->
 <section class="proof" id="proof" aria-labelledby="proof-h">
   <div class="wrap">
@@ -281,7 +363,9 @@ footer p+p{margin-top:6px}
         <p>My own supermoto stunt account. I write the content and edit it with AI through the same AgentOS pipeline clients get: hook and caption writing, AI-made edits, the approval queue, posting and a monthly report.</p>
         <p style="margin-top:10px"><strong>"Every stunt clip goes through the same approval queue your posts will."</strong></p>
         <p style="margin-top:10px">Follower count withheld until a fresh dated screenshot is on file.</p>
-        <div class="media-ph">[Raw clip vs AI-edited reel: Dale to supply]</div>
+        <div class="shot shot-portrait" style="margin-top:14px">
+          <video src="media/dale-reel-wheelie.mp4" poster="media/dale-reel-poster.jpg" controls preload="none" playsinline width="720" height="1280">Your browser can't play this reel. The still is the first frame.</video>
+        </div>
       </article>
       <article class="card">
         <h3>The Joint <span class="ph">[THE JOINT LOGO, approved]</span></h3>
